@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 typedef struct String String;
 
@@ -16,9 +17,13 @@ struct String {
 String* create_string(const char* str);
 
 char* get_data(String* str);
-size_t length(String* str);
-void add_char(String* str, char c);
+char *add_char(String* str, char c);
 
+size_t length(String* str);
+bool has_space(String* str);
+
+void delete(String* str, size_t start, size_t end);
+void reallocate(String* str, size_t size);
 void delete_string(String* str);
 
 #endif // !RSTRING_H
